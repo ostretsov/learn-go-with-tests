@@ -25,7 +25,7 @@ So `walk(x interface{}, fn func(string))` will accept any value for `x`.
 ### So why not use `interface` for everything and have really flexible functions?
 
 - As a user of a function that takes `interface` you lose type safety. What if you meant to pass `Foo.bar` of type `string` into a function but instead did `Foo.baz` which is an `int`? The compiler won't be able to inform you of your mistake. You also have no idea _what_ you're allowed to pass to a function. Knowing that a function takes a `UserService` for instance is very useful.
-- As a writer of such a function, you have to be able to inspect _anything_ that has been passed to you and try and figure out what the type is and what you can do with it. This is done using _reflection_. This can be quite clumsy and difficult to read and is generally less performant (as you have to do checks at runtime).
+- As a writer of such a function, you have to be able to inspect _anything_ that has been passed to you and try to figure out what the type is and what you can do with it. This is done using _reflection_. This can be quite clumsy and difficult to read and is generally less performant (as you have to do checks at runtime).
 
 In short only use reflection if you really need to.
 
